@@ -1,6 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
 import { BsFacebook,BsTwitter,BsLinkedin,BsInstagram } from 'react-icons/bs';
+import dynamic from 'next/dynamic';
+import 'leaflet/dist/leaflet.css'
+const Map = dynamic(() => import('../Map/Map'), {
+  ssr: false,
+})
 
 const Footer = () => {
   return (
@@ -18,7 +23,7 @@ const Footer = () => {
       </div>
     </div>
     <div className="footer-right w-[40%]">
-          
+          <Map/>
     </div>
     </footer>
   )

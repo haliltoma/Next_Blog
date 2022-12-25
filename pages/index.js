@@ -3,8 +3,11 @@ import Image from "next/image";
 import CardSm from "../components/Card/CardSm";
 import image1 from "../public/assets/images/photo.jpeg";
 import image2 from "../public/assets/images/photo2.jpeg";
-
+import { val } from "../store/slices/auth";
+import { useSelector } from "react-redux";
 export default function Home({ data, first }) {
+  const val = useSelector((state)=>state.auth.value);
+
   return (
     <>
       <Head>
@@ -14,6 +17,7 @@ export default function Home({ data, first }) {
         <link rel="icon" href="/favicon.ico" />
         <title>Home</title>
       </Head>
+      d{val}d
       <main>
         <section className="container py-4 justify-center flex-wrap  flex gap-5">
           {data.map((item, i) => (
@@ -63,6 +67,7 @@ export default function Home({ data, first }) {
 
 export async function getServerSideProps() {
   const res = await fetch("http://localhost:3000/api/blogs");
+  
   const data = await res.json();
   const first = data[0];
   console.log(first);
