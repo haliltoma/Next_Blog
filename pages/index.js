@@ -1,12 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
+import CardMd from "../components/Card/CardMd";
 import CardSm from "../components/Card/CardSm";
 import image1 from "../public/assets/images/photo.jpeg";
 import image2 from "../public/assets/images/photo2.jpeg";
-import { val } from "../store/slices/auth";
-import { useSelector } from "react-redux";
+import image3 from "../public/assets/images/photo3.jpeg";
+import image4 from "../public/assets/images/photo4.jpg";
 export default function Home({ data, first }) {
-  const val = useSelector((state)=>state.auth.value);
 
   return (
     <>
@@ -17,7 +17,7 @@ export default function Home({ data, first }) {
         <link rel="icon" href="/favicon.ico" />
         <title>Home</title>
       </Head>
-      d{val}d
+      
       <main>
         <section className="container py-4 justify-center flex-wrap  flex gap-5">
           {data.map((item, i) => (
@@ -60,6 +60,32 @@ export default function Home({ data, first }) {
             />
           ))}
         </section>
+        <section className="flex flex-wrap gap-4 justify-center">
+          <CardMd
+            image={image1}
+            title={first.title}
+            content={first.content}
+            author={first.author}
+          />
+          <CardMd
+            image={image2}
+            title={first.title}
+            content={first.content}
+            author={first.author}
+          />
+          <CardMd
+            image={image3}
+            title={first.title}
+            content={first.content}
+            author={first.author}
+          />
+          <CardMd
+            image={image4}
+            title={first.title}
+            content={first.content}
+            author={first.author}
+          />
+        </section>
       </main>
     </>
   );
@@ -67,10 +93,8 @@ export default function Home({ data, first }) {
 
 export async function getServerSideProps() {
   const res = await fetch("http://localhost:3000/api/blogs");
-  
   const data = await res.json();
   const first = data[0];
-  console.log(first);
   return {
     props: { data, first },
   };

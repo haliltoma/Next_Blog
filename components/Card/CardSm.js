@@ -4,7 +4,7 @@ import React from 'react'
 
 const CardSm = ({image,title,author}) => {
   return (
-    <div className='card w-52 p-4 border'>
+    <article className='card w-52 p-4 border'>
         <div className="card-header  h-52 rounded-md overflow-hidden hover:rounded-2xl duration-300">
             <Image className='object-cover h-full w-full'  src={image} alt={`${title}-${author}`}/>
         </div>
@@ -12,7 +12,7 @@ const CardSm = ({image,title,author}) => {
             <h3 className='mb-3 font-black tracking-wide'>{title}</h3>
             <p>{author}</p>
         </div>
-    </div>
+    </article>
   )
 }
 
