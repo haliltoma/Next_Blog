@@ -29,5 +29,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.leaflet-right{
+  display: none !important;
+}
+.jodit-status-bar{
+  visibility: hidden;
+}
 
 

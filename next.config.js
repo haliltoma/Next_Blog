@@ -5,6 +5,10 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  output: {
+    // ...
+    globalObject: 'this',
+  },
 }
 
 module.exports = nextConfig
