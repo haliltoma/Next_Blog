@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import CommentCard from "./CommentCArd";
+import dynamic from "next/dynamic";
+const CommentCard = dynamic(()=>import('./CommentCard'),{
+  loading: () => "Loading...",
+    ssr: false,
+})
 
 const Comment = () => {
   const [value, setValue] = useState("");
