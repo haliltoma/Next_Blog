@@ -52,10 +52,7 @@ const BlogItem = ({ val, params }) => {
           <BsTwitter className="fill-white hover:fill-slate-300 duration-300" />
         </Link>
       </section>
-          <div>
-          <Comment/>
-          </div>
-    
+      <Comment/>
     </main>
   );
 };
